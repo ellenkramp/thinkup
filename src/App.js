@@ -4,6 +4,8 @@ import './App.css';
 import { HashRouter as Router, Route } from "react-router-dom";
 
 import HomePageScreen from './Components/HomePageScreen'
+import CreateIdea from './Components/CreateIdea';
+
 
 class App extends Component {
   render() {
@@ -11,6 +13,7 @@ class App extends Component {
       <Router>
       <div>
         <Route path="/" exact component={HomePageScreen}/>
+        <Route path="/new" exact component={CreateIdea}/>
       </div>
     </Router>
     );
