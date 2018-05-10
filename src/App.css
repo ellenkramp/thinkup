@@ -6,6 +6,7 @@ body {
   height: 100vh;
 }
 
+/* homepage  */
 .home-page-container{
   display: flex;
   justify-content: center;
@@ -42,6 +43,19 @@ body {
 
 .el {
   padding: 0 10px;
+}
+
+/* Categories Screen */
+
+.categories {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.c-img {
+  height: 270px;
+  padding: 50px;
 }
 
 @keyframes App-logo-spin {
