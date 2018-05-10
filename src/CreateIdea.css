@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    flex-flow: column wrap;
+    width: 50%;
+    margin: 5% 10% 10% 5%;
+}
+
+.create-idea, button {
+    font-family: 'Lekton', sans-serif;
+}
+
+button {
+    justify-content: center;
+    width: 15%;
+}
+
+p {
+    font-family: 'Didact Gothic', sans-serif;
+}
