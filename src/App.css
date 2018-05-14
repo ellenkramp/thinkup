@@ -6,6 +6,11 @@ body {
   height: 100vh;
 }
 
+p, a{
+  text-decoration: none;
+  color: black;
+}
+
 /* homepage  */
 .home-page-container{
   display: flex;
@@ -53,10 +58,20 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.c-header {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 10px 0;
+}
+
 .c-img {
   height: 270px;
+  width: 400px;
   padding: 50px;
 }
+
+
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
