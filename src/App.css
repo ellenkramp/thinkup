@@ -58,6 +58,13 @@ p, a{
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.c-header {
+  display: flex;
+  justify-content: center;
+  padding: 60px 0 10px 0;
+}
+
 .c-img {
   height: 270px;
   width: 400px;

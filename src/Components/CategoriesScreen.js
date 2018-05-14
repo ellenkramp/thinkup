@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 let CategoriesScreen = () => 
     <div className="cateogires-screen-container">
-        <div className="header"> 
+        <div className="c-header"> 
             <div><Link to="/"><img src={logo} className="logo" alt="logo" /></Link></div>
         </div>
 
