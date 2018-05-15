@@ -10,8 +10,6 @@ p, a{
   text-decoration: none;
   color: black;
 }
-
-/* homepage  */
 .home-page-container{
   display: flex;
   justify-content: center;
@@ -29,7 +27,7 @@ p, a{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   width: 100vw;
 }
 
@@ -38,7 +36,8 @@ p, a{
 }
 
 .logo {
-  height: 100px;
+  height: 70px;
+  padding: 0 0 0 20px; 
 }
 
 .link {
