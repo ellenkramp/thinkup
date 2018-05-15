@@ -18,10 +18,10 @@ let CategoriesScreen = () =>
         </div>
 
         <div className="categories">
-            <div className="c"><Link to="/categories/2"><img src={music} className="c-img" alt="music" /></Link></div>
-            <div className="c"><Link to="/categories/2"><img src={design} className="c-img" alt="design" /></Link></div>
-            <div className="c"><Link to="/categories/3"><img src={film} className="c-img" alt="film" /></Link></div>
-            <div className="c"><Link to="/categories/4"><img src={gaming} className="c-img" alt="gaming" /></Link></div>
+            <div className="c"><Link to="/categories/music"><img src={music} className="c-img" alt="music" /></Link></div>
+            <div className="c"><Link to="/categories/design"><img src={design} className="c-img" alt="design" /></Link></div>
+            <div className="c"><Link to="/categories/film"><img src={film} className="c-img" alt="film" /></Link></div>
+            <div className="c"><Link to="/categories/gaming"><img src={gaming} className="c-img" alt="gaming" /></Link></div>
         </div> 
     </div>
 
