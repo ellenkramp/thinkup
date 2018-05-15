@@ -2,28 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 
-import { loadIdeasToStore } from '../Actions/actions';
-import { getAllIdeas } from '../Lib/api-calls';
-
 
 let mapPropsToState = (state) => {
   return { allIdeas: state.ideasList}
 };
 
-let mapDispatchToProps = dispatch => {
-  return { loadIdeasToStore: ideas => dispatch(loadIdeasToStore(ideas)) }
-};
-
 class AllIdeasScreen extends Component {
-
-  componentDidMount() {
-    getAllIdeas() 
-      .then(res => res.json())
-      .then(ideas => {
-        this.props.loadIdeasToStore(ideas);
-      }); 
-  }
-
   render() {
     let allIdeas = this.props.allIdeas;
     return (
@@ -48,4 +32,4 @@ class AllIdeasScreen extends Component {
     );
   }}
 
-export default connect(mapPropsToState, mapDispatchToProps)(AllIdeasScreen);
+export default connect(mapPropsToState)(AllIdeasScreen);
