@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 import '../CreateIdea.css';
+import { postData } from '../Actions/PostActions';
 
 class CreateIdea extends Component {
     constructor(props) {
         super(props)
         this.state = {idea:{}};
+
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    handleSubmit = (event) => {
-        let submission = {
-            name: event.target.name.value,
-            phone: event.target.phone.value,
-            relationship: event.target.relationship.value
-        };
+    handleSubmit = async (event) => {
         event.preventDefault();
-            this.props.addContact(submission);
-            console.log(submission);
-            event.target.reset();
+        let submission = {};
+        event.target.title!==undefined ? submission.title = event.target.title.value :
+            submission.title="none";
+        event.target.category!==undefined ? submission.category = event.target.category.value :
+            submission.category = "none";
+        event.target.content!==undefined ? submission.content = event.target.content.value :
+            submission.content = "none";
+        event.target.tag1!==undefined ? submission.tag1 = event.target.tag1.value :
+            submission.tag1 = "none";
+        event.target.username!==undefined ? submission.username = event.target.username.value :
+            submission.username = "none";
+        JSON.stringify(submission);
+        console.log(submission);
+        await postData(submission);
     }
 
     render() {
@@ -32,14 +41,13 @@ class CreateIdea extends Component {
                         type="text" />
                         </div>
                     </div>
-
                     <div className="ci">
-                    <label>Who Are You?</label>
+                    <label>User Name</label>
                         <div>
                         <input
-                        name="your name"
-                        type="text"
-                        placeholder="what should we call you?" />
+                        name="username"
+                        placeholder="name"
+                        type="text" />
                         </div>
                     </div>
                     
@@ -48,11 +56,10 @@ class CreateIdea extends Component {
                         <div className="select">
                         <select 
                         name="category">
-                            <option value="none">None</option>
-                            <option value="crypto">Gaming</option>
-                            <option value="design">Design</option>
+                            <option value="film">Film</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="art">Art</option>
                             <option value="music">Music</option>
-                            <option value="food">Film</option>
                         </select>
                         </div>
                         </div>
@@ -62,7 +69,8 @@ class CreateIdea extends Component {
                     <label>Your Idea</label>
                     <div>
                         <textarea
-                        name="idea"
+                        name="content"
+                        type="text"
                         placeholder="type your idea here" />  
                     </div>
                     </div>
