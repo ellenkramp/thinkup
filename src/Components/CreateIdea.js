@@ -25,6 +25,7 @@ class CreateIdea extends Component {
         JSON.stringify(submission);
         console.log(submission);
         await postData(submission);
+        // window.location.assign('/ideas/ideas/ideas');
     }
 
     render() {
@@ -46,7 +47,7 @@ class CreateIdea extends Component {
                         <div>
                         <input
                         name="username"
-                        placeholder="name"
+                        placeholder="alias"
                         type="text" />
                         </div>
                     </div>
