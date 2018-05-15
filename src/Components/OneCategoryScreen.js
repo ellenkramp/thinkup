@@ -6,23 +6,32 @@ import Header from '../Components/Header';
 
 let mapStateToProps = (state, props) => {
   return { allIdeas: state.ideasList, 
-    categoryId: props.match.params.category }
+    categoryName: props.match.params.category }
 };
 
   
-  let OneCategoryScreen = ({allIdeas, categoryId}) => {
-    console.log(categoryId);
-    let theCategory = allIdeas.find(Eachcategory => Eachcategory.category === parseInt(categoryId, 10))
+  let OneCategoryScreen = ({allIdeas, categoryName}) => {
+    console.log(categoryName);
+    let filteredIdeasByCategory = allIdeas.filter(Eachcategory => Eachcategory.category === categoryName.toLowerCase())
     console.log(allIdeas);
-    console.log(theCategory);
+    console.log(filteredIdeasByCategory);
       return (
           <div>
             <header>
               <Header />
             </header>
             <div>
-              <h1>{theCategory.title}</h1>
-              <p>{theCategory.content}</p>
+              {
+                filteredIdeasByCategory.map(idea => {
+                return (
+                  <div>
+                    <h1>{idea.title}</h1>
+                    <p>{idea.content}</p>
+                  </div>
+                )
+              })
+              
+              }
             </div>
           </div>
     )
