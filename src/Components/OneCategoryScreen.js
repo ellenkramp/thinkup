@@ -20,7 +20,7 @@ let mapStateToProps = (state, props) => {
             <header>
               <Header />
             </header>
-            <div>
+            <div key={filteredIdeasByCategory.id}>
               {
                 filteredIdeasByCategory.map(idea => {
                 return (
