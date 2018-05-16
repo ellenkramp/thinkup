@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import '../CreateIdea.css';
 import { postData } from '../Actions/PostActions';
+import { Redirect } from 'react-router-dom';
+import AllIdeasScreen from './AllIdeasScreen';
+import Header from './Header';
 
 class CreateIdea extends Component {
     constructor(props) {
         super(props)
-        this.state = {idea:{}};
+        this.state = {submitted:false};
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -22,14 +25,21 @@ class CreateIdea extends Component {
             submission.tag1 = "none";
         event.target.username!==undefined ? submission.username = event.target.username.value :
             submission.username = "none";
-        JSON.stringify(submission);
+
         console.log(submission);
         await postData(submission);
+        this.setState({submitted:true});
     }
 
-    render() {
-        return (
+    render() { 
+            if (this.state.submitted===true){
+                return (
+                    <Redirect to="/ideas"/>
+                )}
+            else {
+                return (
             <div className='create-idea'>
+                <Header />
                 <h1>Add Your Idea</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="ci">
@@ -46,7 +56,7 @@ class CreateIdea extends Component {
                         <div>
                         <input
                         name="username"
-                        placeholder="name"
+                        placeholder="alias"
                         type="text" />
                         </div>
                     </div>
@@ -75,14 +85,14 @@ class CreateIdea extends Component {
                     </div>
                     </div>
 
-                    <div className="ci">              
-                    <button type="submit" >
+                    <div className="ci">          
+                    <button type="submit">
                         Post Idea
                     </button>
                     </div>
                 </form>
             </div>
-        ) 
+        )}
     }
 }
 
