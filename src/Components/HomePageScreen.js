@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from './Header';
+import Footer from './Footer';
 
 let HomePageScreen = () => {
     return (
@@ -13,6 +14,7 @@ let HomePageScreen = () => {
         <div><p>By Categories</p><input type="text" name="categories" /></div>
         <button>Search</button>
     </div>
+    <Footer />
     </div>
     )
 }

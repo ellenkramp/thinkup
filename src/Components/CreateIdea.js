@@ -38,8 +38,9 @@ class CreateIdea extends Component {
                 )}
             else {
                 return (
+        <div>
+            <Header />
             <div className='create-idea'>
-                <Header />
                 <h1>Add Your Idea</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="ci">
@@ -91,6 +92,7 @@ class CreateIdea extends Component {
                     </button>
                     </div>
                 </form>
+            </div>
             </div>
         )}
     }

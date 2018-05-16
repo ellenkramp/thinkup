@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
-
+import moment from 'moment-timezone';
+import cloudinary from 'cloudinary-core';
+const cloudinaryCore = new cloudinary.Cloudinary({cloud_name: 'demo'});
 
 let mapPropsToState = (state) => {
   return { allIdeas: state.ideasList}
@@ -19,9 +21,10 @@ class AllIdeasScreen extends Component {
             { allIdeas.map(idea => {
                 return (
                   <div key={idea.id}>
-                      <p>{idea.title}</p>
+                      <h2>{idea.title}</h2>
                   <div>
-                    <p>{idea.time}</p>
+                    <h5><i>{Date(idea.time)}</i></h5>
+                    <img className="post-img" src={cloudinaryCore.url('sample')} />
                     <p>{idea.content}</p>
                   </div>
                   </div>  
