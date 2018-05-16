@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../CreateIdea.css';
 import { postData } from '../Actions/PostActions';
+import { Redirect } from 'react-router-dom';
 
 class CreateIdea extends Component {
     constructor(props) {
@@ -22,10 +23,9 @@ class CreateIdea extends Component {
             submission.tag1 = "none";
         event.target.username!==undefined ? submission.username = event.target.username.value :
             submission.username = "none";
-        JSON.stringify(submission);
+
         console.log(submission);
         await postData(submission);
-        // window.location.assign('/ideas/ideas/ideas');
     }
 
     render() {
@@ -76,8 +76,8 @@ class CreateIdea extends Component {
                     </div>
                     </div>
 
-                    <div className="ci">              
-                    <button type="submit" >
+                    <div className="ci">          
+                    <button type="submit">
                         Post Idea
                     </button>
                     </div>
