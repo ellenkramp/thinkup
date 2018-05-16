@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import '../CreateIdea.css';
 import { postData } from '../Actions/PostActions';
 import { Redirect } from 'react-router-dom';
+import AllIdeasScreen from './AllIdeasScreen';
 
 class CreateIdea extends Component {
     constructor(props) {
         super(props)
-        this.state = {idea:{}};
+        this.state = {submitted:false};
 
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -26,10 +27,16 @@ class CreateIdea extends Component {
 
         console.log(submission);
         await postData(submission);
+        this.setState({submitted:true});
     }
 
-    render() {
-        return (
+    render() { 
+            if (this.state.submitted===true){
+                return (
+                    <Redirect to="/ideas"/>
+                )}
+            else {
+                return (
             <div className='create-idea'>
                 <h1>Add Your Idea</h1>
                 <form onSubmit={this.handleSubmit}>
@@ -83,7 +90,7 @@ class CreateIdea extends Component {
                     </div>
                 </form>
             </div>
-        ) 
+        )}
     }
 }
 
