@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import './App.css';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import { loadIdeasToStore } from './Actions/actions';
 import { getAllIdeas } from './Lib/api-calls';
@@ -12,6 +12,7 @@ import CreateIdea from './Components/CreateIdea';
 import CategoriesScreen from './Components/CategoriesScreen';
 import AllIdeasScreen from './Components/AllIdeasScreen';
 import OneCategoryScreen from './Components/OneCategoryScreen';
+import SearchScreen from './Components/SearchScreen';
 
 
 let mapDispatchToProps = dispatch => {
@@ -30,13 +31,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div>
-        <Route path="/" exact component={HomePageScreen}/>
-        <Route path="/new" exact component={CreateIdea}/>
-        <Route path="/categories" exact component={CategoriesScreen}/>
-        <Route path="/categories/:category" exact component={OneCategoryScreen}/>
-        <Route path="/ideas" exact component={AllIdeasScreen}/>
-      </div>
+      <Switch>
+        <Route path="/categories/:category" component={OneCategoryScreen}/>
+        <Route path="/new" component={CreateIdea}/>
+        <Route path="/categories" component={CategoriesScreen}/>
+        <Route path="/ideas" component={AllIdeasScreen}/>
+        <Route path="/search" component={SearchScreen}/>
+        <Route path="/" component={HomePageScreen}/>      
+        </ Switch>
     </Router>
     );
   }

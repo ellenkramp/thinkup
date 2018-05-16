@@ -20,11 +20,11 @@ let mapStateToProps = (state, props) => {
             <header>
               <Header />
             </header>
-            <div key={filteredIdeasByCategory.id}>
+            <div className="container" key={filteredIdeasByCategory.id}>
               {
                 filteredIdeasByCategory.map(idea => {
                 return (
-                  <div>
+                  <div className="container" >
                     <h1>{idea.title}</h1>
                     <p>{idea.content}</p>
                   </div>

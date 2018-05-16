@@ -4,6 +4,7 @@ import { postData } from '../Actions/PostActions';
 import { Redirect } from 'react-router-dom';
 // import AllIdeasScreen from './AllIdeasScreen';
 import Header from './Header';
+import Footer from './Footer';
 
 class CreateIdea extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class CreateIdea extends Component {
                 )}
             else {
                 return (
-        <div>
+            <div>
             <Header />
             <div className='create-idea'>
                 <h1>Add Your Idea</h1>
@@ -93,6 +94,9 @@ class CreateIdea extends Component {
                     </div>
                 </form>
             </div>
+            <footer>
+                <Footer />
+            </footer>
             </div>
         )}
     }

@@ -1,19 +1,23 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import { Link } from "react-router-dom";
 
-import SearchBar from './SearchBar';
 
 let HomePageScreen = () => {
     return (
     <div className="home-page-container">
-    <div className="header">
-        <Header />
-    </div>
-    <div className="hp">
-        <SearchBar />
-    </div>
-    <Footer />
+        <div>
+            <Header />
+        </div>
+        <div className="search-container">
+            <Link to="/search">                 
+                <h1>Click here to search your ideas</h1>
+            </Link>
+        </div>  
+        <footer>
+            <Footer />
+        </footer>
     </div>
     )
 }
