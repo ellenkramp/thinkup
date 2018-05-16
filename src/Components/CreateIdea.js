@@ -3,6 +3,7 @@ import '../CreateIdea.css';
 import { postData } from '../Actions/PostActions';
 import { Redirect } from 'react-router-dom';
 import AllIdeasScreen from './AllIdeasScreen';
+import Header from './Header';
 
 class CreateIdea extends Component {
     constructor(props) {
@@ -38,6 +39,7 @@ class CreateIdea extends Component {
             else {
                 return (
             <div className='create-idea'>
+                <Header />
                 <h1>Add Your Idea</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div className="ci">
