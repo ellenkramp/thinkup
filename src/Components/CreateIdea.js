@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../CreateIdea.css';
 import { postData } from '../Actions/PostActions';
 import { Redirect } from 'react-router-dom';
-import AllIdeasScreen from './AllIdeasScreen';
+// import AllIdeasScreen from './AllIdeasScreen';
 import Header from './Header';
 
 class CreateIdea extends Component {

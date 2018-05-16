@@ -8,7 +8,9 @@ import { Provider } from 'react-redux';
 
 
 let initialState = {
-    ideasList: []
+    ideasList: [],
+    value: '',
+    filteredIdeas: []
 }
 
 
@@ -19,6 +21,21 @@ let reducer = (state = initialState, action) => {
                 ...state, ideasList: action.payload.ideas
             }
         }
+
+        case "SEARCH": {
+            const { payload } = action;
+            const filteredIdeas = state.ideasList.filter((val) => val.category.toLowerCase().includes(payload.toLowerCase()))
+            if (action.payload === "") {
+                return {
+                   ...state, filteredIdeas: [] 
+                }}
+            else {
+                return {
+                    ...state, filteredIdeas
+                }
+            }
+        }
+
         default: return state;
     }
 }
