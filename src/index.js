@@ -24,7 +24,7 @@ let reducer = (state = initialState, action) => {
 
         case "SEARCH": {
             const { payload } = action;
-            const filteredIdeas = state.ideasList.filter((val) => val.category.toLowerCase().includes(payload.toLowerCase()))
+            const filteredIdeas = state.ideasList.filter((val) => val.content.toLowerCase().includes(payload.toLowerCase()))
             if (action.payload === "") {
                 return {
                    ...state, filteredIdeas: [] 

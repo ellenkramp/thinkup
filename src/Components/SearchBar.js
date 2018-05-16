@@ -20,26 +20,27 @@ class SearchBar extends Component {
     const {search, value} = this.props;
 
     return (
-        <div>
+        <div className="ss-bar">
             <input
+            type="search"
             className="form-control"
-            placeholder = "Search By Cateogries"
+            placeholder = "Search keywords"
             onChange={(e) => search(e.target.value)}
             value={value} />
 
             {this.props.filteredIdeas.length
-                ? (<div>
+                ? <div>
                     {
                         this.props.filteredIdeas.map(idea => {
                             return (
-                            <div>
-                                {idea.title}
-                                {idea.content}
+                            <div key={idea.id} className="searched-ideas">
+                                <div><h1>{idea.title}</h1></div>
+                                <div>{idea.content}</div>
                             </div>
                             )
                         }
                     )}
-                </div>)
+                </div>
                 : null   
             }
 

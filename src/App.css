@@ -1,22 +1,39 @@
 .App {
   text-align: center;
 }
+#root, .home-page-container {
+  height: 100%
+}
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-  height: 100vh;
+  margin: 0;
+  padding: 0;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
 }
 
 p, a{
   text-decoration: none;
   color: black;
   padding: 3px;
-}
-.home-page-container{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
 }
 
 .hp {
@@ -30,12 +47,11 @@ p, a{
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
-  width: 100vw;
-  background: gold;
+  padding: 8px;
+  background: rgb(250, 235, 152);
   border: 0px;
   font-family: 'Poiret One', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
 .space {
@@ -85,7 +101,7 @@ a p:hover {
   color: white;
 }
 
-h2, .create-idea h1 {
+h2, h1 {
   font-family: 'Homemade Apple', sans-serif;
 }
 
@@ -103,20 +119,63 @@ h2, .create-idea h1 {
   width: 70%
 }
 
-.hp {
-  background-image: url(http://i.imgur.com/9XzrQkl.jpg);
-  width: 100%;
-  height: 100%;
+/* Homepage  */
+
+.home-page-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container {
+  background-image: url('images/background-image.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-grow: 1;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.search-container a{
+  color: white;
+  font-size: 1.2em;
 }
 
 .foot {
-  background-color: #aaaaaa;
+  background-color: rgb(250, 235, 152);
   display: flex;
-  flex-flow: row nowrap;
+  padding: 40px;
+  justify-content: center;
 }
 
-.footer {
+/* search Screen */
+.search-bar-container {
   display: flex;
-  flex-direction: column-reverse;
-  flex-shrink: 0;
+  justify-content: center;
+  padding: 50px 0 0 0;
+}
+
+.ss-bar {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searched-ideas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+/* allIdeas Screen  */
+
+.post-img {
+  height: 300px;
+  width: 300px;
 }
