@@ -5,7 +5,7 @@ import './App.css';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import { loadIdeasToStore } from './Actions/actions';
-import { getAllIdeas } from './Lib/api-calls';
+
 
 import HomePageScreen from './Components/HomePageScreen'
 import CreateIdea from './Components/CreateIdea';
@@ -20,13 +20,6 @@ let mapDispatchToProps = dispatch => {
 };
 
 class App extends Component {
-  componentDidMount() {
-    getAllIdeas() 
-      .then(res => res.json())
-      .then(ideas => {
-        this.props.loadIdeasToStore(ideas);
-      }); 
-  }
 
   render() {
     return (
@@ -38,7 +31,7 @@ class App extends Component {
         <Route path="/ideas" component={AllIdeasScreen}/>
         <Route path="/search" component={SearchScreen}/>
         <Route path="/" component={HomePageScreen}/>      
-        </ Switch>
+        </Switch>
     </Router>
     );
   }
