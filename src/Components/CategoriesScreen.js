@@ -18,7 +18,7 @@ let CategoriesScreen = () =>
     <div className="cateogires-screen-container">
         <div className="categories">
             <div className="c"><Link to="/categories/music"><img src={music} className="c-img" alt="music" /></Link></div>
-            <div className="c"><Link to="/categories/design"><img src={art} className="c-img" alt="art" /></Link></div>
+            <div className="c"><Link to="/categories/art"><img src={art} className="c-img" alt="art" /></Link></div>
             <div className="c"><Link to="/categories/film"><img src={film} className="c-img" alt="film" /></Link></div>
             <div className="c"><Link to="/categories/gaming"><img src={gaming} className="c-img" alt="gaming" /></Link></div>
         </div>
