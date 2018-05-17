@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { getAllIdeas } from './Lib/api-calls';
 import './App.css';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -20,7 +20,13 @@ let mapDispatchToProps = dispatch => {
 };
 
 class App extends Component {
-
+  componentDidMount() {
+    getAllIdeas() 
+      .then(res => res.json())
+      .then(ideas => {
+        this.props.loadIdeasToStore(ideas);
+      }); 
+  }
   render() {
     return (
       <Router>

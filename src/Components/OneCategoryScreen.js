@@ -10,7 +10,7 @@ let mapStateToProps = (state, props) => {
 };
 
   
-  let OneCategoryScreen = ({allIdeas, categoryName}) => {
+let OneCategoryScreen = ({allIdeas, categoryName}) => {
     console.log(categoryName);
     let filteredIdeasByCategory = allIdeas.filter(Eachcategory => Eachcategory.category === categoryName.toLowerCase())
     console.log(allIdeas);
@@ -22,11 +22,13 @@ let mapStateToProps = (state, props) => {
             </header>
             <div className="container" key={filteredIdeasByCategory.id}>
               {
-                filteredIdeasByCategory.map(idea => {
+                filteredIdeasByCategory.map((idea, i) => {
                 return (
-                  <div className="container" >
+                  <div className="container" key={i}>
                     <h1>{idea.title}</h1>
+                    <p><i>{Date(idea.time)}</i></p>
                     <p>{idea.content}</p>
+                    <img src={idea.img_id} alt="img" className="post-img" />
                   </div>
                 )
               })
@@ -36,6 +38,6 @@ let mapStateToProps = (state, props) => {
           </div>
     )
   }
-  
-  export default connect(mapStateToProps)(OneCategoryScreen);
+
+export default connect(mapStateToProps)(OneCategoryScreen);
   
