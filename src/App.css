@@ -12,7 +12,13 @@
   align-content: center;
   justify-content: center;
   padding: 20px;
+  font-family: 'Poppins', sans-serif;
 }
+
+.individual-idea p {
+  width: 60%;
+}
+
 
 html {
   height: 100%;
@@ -94,10 +100,10 @@ p, a{
   padding: 50px;
 }
 
-a p:hover {
+.header a p:hover, button:hover {
   background-color: #aaaaaa;
   border: 0px solid;
-  border-radius: 5%;
+  border-radius: 5px;
   color: white;
 }
 
@@ -105,18 +111,8 @@ h2, h1 {
   font-family: 'Homemade Apple', sans-serif;
 }
 
-.all-ideas-container {
-  font-family: 'Poppins', sans-serif;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .create-idea {
   font-family: 'Poppins', sans-serif;
-}
-
-.post-img {
-  width: 70%
 }
 
 /* Homepage  */
@@ -149,6 +145,7 @@ h2, h1 {
   display: flex;
   padding: 40px;
   justify-content: center;
+  font-family: 'Poiret One', sans-serif;
 }
 
 /* search Screen */
@@ -178,4 +175,17 @@ h2, h1 {
 .post-img {
   height: 300px;
   width: 300px;
+  object-fit: cover;
+}
+
+.search-container {
+  font-family: 'Poiret One', sans-serif;
+  font-size: 1.3em;
+  border: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+.search-container p {
+  color: white;
 }

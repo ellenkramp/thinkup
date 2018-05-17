@@ -11,6 +11,7 @@ let OneCategory = ({categoryName}) => {
               return (
                 <div>
                     <h1>{eachCategory.title}</h1>
+                    <img className="post-img" alt="img" src={eachCategory.img_id} />
                     <p>{eachCategory.content}</p>
                 </div>
               );

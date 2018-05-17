@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import { getAllIdeas } from './Lib/api-calls';
 import './App.css';
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
 import { loadIdeasToStore } from './Actions/actions';
-import { getAllIdeas } from './Lib/api-calls';
+
 
 import HomePageScreen from './Components/HomePageScreen'
 import CreateIdea from './Components/CreateIdea';
@@ -27,7 +27,6 @@ class App extends Component {
         this.props.loadIdeasToStore(ideas);
       }); 
   }
-
   render() {
     return (
       <Router>
@@ -38,7 +37,7 @@ class App extends Component {
         <Route path="/ideas" component={AllIdeasScreen}/>
         <Route path="/search" component={SearchScreen}/>
         <Route path="/" component={HomePageScreen}/>      
-        </ Switch>
+        </Switch>
     </Router>
     );
   }

@@ -1,18 +1,28 @@
 import React, { Component } from 'react';
 import '../CreateIdea.css';
-import { postData } from '../Actions/PostActions';
+import { postData, uploadImage } from '../Actions/PostActions';
 import { Redirect } from 'react-router-dom';
-// import AllIdeasScreen from './AllIdeasScreen';
 import Header from './Header';
 import Footer from './Footer';
+import { connect } from 'react-redux';
+import { getAllIdeas } from '../Lib/api-calls';
+import { loadIdeasToStore } from '../Actions/actions';
 
 class CreateIdea extends Component {
     constructor(props) {
         super(props)
-        this.state = {submitted:false};
-
+        this.state = {submitted:false,
+                      imageId:""};
+        this.handleImageUpload = this.handleImageUpload.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    componentWillUpdate() {
+        getAllIdeas() 
+          .then(res => res.json())
+          .then(ideas => {
+            this.props.loadIdeasToStore(ideas);
+          }); 
+      }
     handleSubmit = async (event) => {
         event.preventDefault();
         let submission = {};
@@ -26,10 +36,16 @@ class CreateIdea extends Component {
             submission.tag1 = "none";
         event.target.username!==undefined ? submission.username = event.target.username.value :
             submission.username = "none";
-
+        submission.img_id = await this.state.imageId;
         console.log(submission);
         await postData(submission);
         this.setState({submitted:true});
+    }
+
+    handleImageUpload = (event) => {
+        const file = event.target.files[0];
+        const imageUrl = uploadImage(file);
+        this.setState({imageId:imageUrl});
     }
 
     render() { 
@@ -62,7 +78,12 @@ class CreateIdea extends Component {
                         type="text" />
                         </div>
                     </div>
-                    
+                    <label>Visual</label>
+                        <input 
+                        type="file"
+                        name="file" 
+                        accept="image/*"
+                        onChange={this.handleImageUpload} />
                         <div className="ci">
                         <label>Category</label>
                         <div className="select">
@@ -102,4 +123,12 @@ class CreateIdea extends Component {
     }
 }
 
-export default CreateIdea;
+let mapDispatchToProps = dispatch => {
+    return { loadIdeasToStore: ideas => dispatch(loadIdeasToStore(ideas)) }
+  };
+
+let mapPropsToState = (state) => {
+    return { allIdeas: state.ideasList}
+  };
+
+export default connect(mapPropsToState, mapDispatchToProps)(CreateIdea);

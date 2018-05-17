@@ -11,8 +11,9 @@ let HomePageScreen = () => {
             <Header />
         </div>
         <div className="search-container">
+            <h1>Your next idea... just waiting to be thought up.</h1>
             <Link to="/search">                 
-                <h1>Click here to search your ideas</h1>
+                <p>SEARCH</p>
             </Link>
         </div>  
         <footer>
