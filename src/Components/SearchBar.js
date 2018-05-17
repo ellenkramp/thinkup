@@ -21,10 +21,11 @@ class SearchBar extends Component {
 
     return (
         <div className="ss-bar">
+            <h1>Search for keywords</h1>
             <input
             type="search"
             className="form-control"
-            placeholder = "Search keywords"
+            placeholder = "keywords"
             onChange={(e) => search(e.target.value)}
             value={value} />
 
