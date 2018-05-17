@@ -34,8 +34,10 @@ class SearchBar extends Component {
                         this.props.filteredIdeas.map(idea => {
                             return (
                             <div key={idea.id} className="searched-ideas">
-                                <div><h1>{idea.title}</h1></div>
-                                <div>{idea.content}</div>
+                                <h1>{idea.title}</h1>
+                                <p>{Date(idea.time)}</p>
+                                <img src={idea.img_id} alt="img" className="post-img" />
+                                <p>{idea.content}</p>
                             </div>
                             )
                         }
