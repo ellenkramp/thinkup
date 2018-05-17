@@ -179,3 +179,9 @@ h2, h1 {
   height: 300px;
   width: 300px;
 }
+
+/* footer */
+
+.el-f {
+  padding: 0 30px;
+}
